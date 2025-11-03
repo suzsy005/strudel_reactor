@@ -109,6 +109,7 @@ useEffect(() => {
 return (
     <div>
         <h2>Strudel Demo</h2>
+		<h3>Test text </h3>
         <main>
 
             <div className="container-fluid">
