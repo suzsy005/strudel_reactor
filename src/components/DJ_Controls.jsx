@@ -20,13 +20,13 @@ function DJ_Controls(){
 			  </label>
 			</div>
 			<div className="form-check">
-			  <input className="form-check-input" type="checkbox" value="" id="d1" checked />
+			  <input className="form-check-input" type="checkbox" value="" id="d1" />
 			  <label className="form-check-label" for="d1">
 			  	d1
 			  </label>
 			</div>
 			<div className="form-check">
-			  <input className="form-check-input" type="checkbox" value="" id="d2" checked />
+			  <input className="form-check-input" type="checkbox" value="" id="d2" />
 			  <label className="form-check-label" for="d2">
 			    d2
 			  </label>
