@@ -9,7 +9,7 @@ import { getAudioContext, webaudioOutput, registerSynthSounds } from '@strudel/w
 import { registerSoundfonts } from '@strudel/soundfonts';
 import { stranger_tune } from './tunes';
 import console_monkey_patch, { getD3Data } from './console-monkey-patch';
-import DJ_Controls from './components/DJ_Controls"
+import DJ_Controls from './components/DJ_Controls'
 
 let globalEditor = null;
 
@@ -136,7 +136,7 @@ return (
                         <div id="output" />
                     </div>
                     <div className="col-md-4">
-                        
+                        <DJ_Controls />
                     </div>
                 </div>
             </div>
