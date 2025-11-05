@@ -9,7 +9,9 @@ import { getAudioContext, webaudioOutput, registerSynthSounds } from '@strudel/w
 import { registerSoundfonts } from '@strudel/soundfonts';
 import { stranger_tune } from './tunes';
 import console_monkey_patch, { getD3Data } from './console-monkey-patch';
-import DJ_Controls from './components/DJ_Controls'
+import DJ_Controls from './components/DJ_Controls';
+import PlayButtons from './components/PlayButtons';
+
 
 let globalEditor = null;
 
@@ -125,8 +127,7 @@ return (
                             <button id="process" className="btn btn-outline-primary m-1">Preprocess</button>
                             <button id="process_play" className="btn btn-outline-secondary m-1">Proc & Play</button>
                             <br />
-                            <button id="play" className="btn btn-outline-primary m-1">Play</button>
-                            <button id="stop" className="btn btn-outline-danger m-1">Stop</button>
+							<PlayButtons />
                         </nav>
                     </div>
                 </div>
