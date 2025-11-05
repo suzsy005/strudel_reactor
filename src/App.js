@@ -12,6 +12,8 @@ import console_monkey_patch, { getD3Data } from './console-monkey-patch';
 import DJ_Controls from './components/DJ_Controls';
 import PlayButtons from './components/PlayButtons';
 import ProcButtons from './components/ProcButtons';
+import PreprocessTextarea from './components/PreprocessTextarea';
+
 
 
 
@@ -120,9 +122,8 @@ return (
             <div className="container-fluid">
                 <div className="row">
                     <div className="col-md-8" style={{ maxHeight: '50vh', overflowY: 'auto' }}>
-                        <label htmlFor="exampleFormControlTextarea1" className="form-label">Text to preprocess:</label>
-                        <textarea className="form-control" rows="15" id="proc" ></textarea>
-                    </div>
+                    	<PreprocessTextarea />
+					</div>
                     <div className="col-md-4">
 
                         <nav>
