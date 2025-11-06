@@ -1,4 +1,7 @@
-function DJ_Controls(){
+function DJ_Controls({ onCPMChange }){
+	
+	// take input value to App.js when users type CPM
+	
 	
 	return (
 		<>
@@ -31,8 +34,6 @@ function DJ_Controls(){
 			    d2
 			  </label>
 			</div>
-			
-			
 		</>
 	); 
 }

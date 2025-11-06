@@ -13,8 +13,7 @@ import DJ_Controls from './components/DJ_Controls';
 import PlayButtons from './components/PlayButtons';
 import ProcButtons from './components/ProcButtons';
 import PreprocessTextarea from './components/PreprocessTextarea';
-
-
+import * as Tone from "tone";	// for updating CPM
 
 
 
@@ -88,6 +87,11 @@ export default function StrudelDemo() {
 	// can set initial value nothing(empty) by default
 	// BUT we have stranger_tune so we use this
 	const [songText, setSongText] = useState(stranger_tune)
+	
+	// manages CPM
+	const [cpm, setCPM] = useState(120);
+	
+	
 
 
 useEffect(() => {
