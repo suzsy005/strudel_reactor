@@ -18,7 +18,7 @@ function DJ_Controls({ cpm, onCpmChange }){
 					placeholder="120" 
 					aria-label="cpm" 
 					aria-describedby="cpm_label"
-					value={cmp} // shows "cpm state" from App.js
+					value={cpm} // shows "cpm state" from App.js
 					onChange={handleCpmInputChange} // notifies CPM input change to App.js
 				/>
 			</div>
