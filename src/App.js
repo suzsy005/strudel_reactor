@@ -86,7 +86,7 @@ export default function StrudelDemo() {
 	// songText is getter, setSongText is setter
 	// can set initial value nothing(empty) by default
 	// BUT we have stranger_tune so we use this
-	const [songText, setSongText] = useState('stranger_tune')
+	const [songText, setSongText] = useState(stranger_tune)
 
 
 useEffect(() => {
@@ -126,8 +126,11 @@ useEffect(() => {
 //        SetupButtons()
 //        Proc()
      }
+	 
+	/* whenever this func use useEffect file, set code to songText   */
+	globalEditor.setCode(songText);
 
-}, []);
+}, [songText]);
 
 
 return (
