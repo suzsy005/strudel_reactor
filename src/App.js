@@ -72,6 +72,14 @@ export default function StrudelDemo() {
 
 	const hasRun = useRef(false);
 	
+	const handlePlay = () => {
+		globalEditor.evaluate()
+	}
+	
+	const handleStop = () => {
+		globalEditor.Stop()
+	}
+
 
 useEffect(() => {
 
@@ -130,7 +138,7 @@ return (
                         <nav>
 							<ProcButtons />
                             <br />
-							<PlayButtons />
+							<PlayButtons onPlay={handlePlay} onStop={handleStop} />
                         </nav>
                     </div>
                 </div>
