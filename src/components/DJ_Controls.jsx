@@ -15,8 +15,8 @@ function DJ_Controls({ cpm, onCpmChange }){
 			  	<input 
 					type="text" 
 					className="form-control" 
-					id="cpm_text_input 
-					"placeholder="120" 
+					id="cpm_text_input" 
+					placeholder="120" 
 					aria-label="cpm" 
 					aria-describedby="cpm_label"
 					value={cmp} // shows "cpm state" from App.js

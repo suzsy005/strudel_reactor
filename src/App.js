@@ -74,11 +74,28 @@ export default function StrudelDemo() {
 	
 	// variable for Play button
 	const handlePlay = () => {
-		globalEditor.evaluate()
+		// checks if it is initialised
+		if (globalEditor)
+		{
+			globalEditor.evaluate()
+		}
+		else
+		{
+			console.error("Editor not ready.");
+		}
 	}
 	
 	// variable for Stop button
 	const handleStop = () => {
+		// checks if it is initialised
+		if (globalEditor)
+		{
+			globalEditor.stop()
+		}
+		else
+		{
+			console.error("Editor not ready.");
+		}
 		globalEditor.stop()
 	}
 	
@@ -153,15 +170,18 @@ useEffect(() => {
                 },
             });
             
-      document.getElementById('proc').value = stranger_tune
+//      document.getElementById('proc').value = stranger_tune
 //        SetupButtons()
 //        Proc()
-     }
-	 // set process code through Preprocess()
-	 const processedCode = PreprocessCode(songText, cpm);
-	 // whenever this func use useEffect file, set code to processCode
-	 globalEditor.setCode(processedCode);	 
-	 // 
+}
+	 
+	if (globalEditor)
+	{
+		// set process code through Preprocess()
+		const processedCode = PreprocessCode(songText, cpm);
+		// whenever this func use useEffect file, set code to processCode
+		globalEditor.setCode(processedCode);	 
+	}
 
 }, [songText, cpm]);
 
@@ -175,7 +195,7 @@ return (
             <div className="container-fluid">
                 <div className="row">
                     <div className="col-md-8" style={{ maxHeight: '50vh', overflowY: 'auto' }}>
-                    	<PreprocessTextarea defaultValue="{songText}" onChange={(e) => setSongText(e.target.value)} />
+                    	<PreprocessTextarea defaultValue={songText} onChange={(e) => setSongText(e.target.value)} />
 					</div>
                     <div className="col-md-4">
 
