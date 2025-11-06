@@ -77,7 +77,7 @@ export default function StrudelDemo() {
 	}
 	
 	const handleStop = () => {
-		globalEditor.Stop()
+		globalEditor.stop()
 	}
 
 
