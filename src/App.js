@@ -1,5 +1,5 @@
 import './App.css';
-import { useEffect, useRef } from "react";
+import { useEffect, useRef, useState } from "react";
 import { StrudelMirror } from '@strudel/codemirror';
 import { evalScope } from '@strudel/core';
 import { drawPianoroll } from '@strudel/draw';
@@ -72,13 +72,21 @@ export default function StrudelDemo() {
 
 	const hasRun = useRef(false);
 	
+	// variable for Play button
 	const handlePlay = () => {
 		globalEditor.evaluate()
 	}
 	
+	// variable for Stop button
 	const handleStop = () => {
 		globalEditor.stop()
 	}
+	
+	// variable for song text
+	// songText is getter, setSongText is setter
+	// can set initial value nothing(empty) by default
+	// BUT we have stranger_tune so we use this
+	const [songText, setSongText] = useState('stranger_tune')
 
 
 useEffect(() => {
