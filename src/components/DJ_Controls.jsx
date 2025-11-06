@@ -1,11 +1,9 @@
-function DJ_Controls({ onCPMChange }){
+function DJ_Controls({ cpm, onCpmChange }){
 	
 	// take input value to App.js when users type CPM
-	const handleCPMInput = (e) => {
+	const handleCpmInputChange = (event) => {
 	  const value = parseFloat(e.target.value);
-	  if (!isNaN(value)) {
-	    onCPMChange(value);
-	  }
+	  	onCpmChange(event.target.value);
 	};
 	
 	
@@ -21,7 +19,8 @@ function DJ_Controls({ onCPMChange }){
 					"placeholder="120" 
 					aria-label="cpm" 
 					aria-describedby="cpm_label"
-					onChange={handleCPMInput} 
+					value={cmp} // shows "cpm state" from App.js
+					onChange={handleCpmInputChange} // notifies CPM input change to App.js
 				/>
 			</div>
 			

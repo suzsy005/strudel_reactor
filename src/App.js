@@ -153,7 +153,7 @@ useEffect(() => {
                 },
             });
             
-        document.getElementById('proc').value = stranger_tune
+      document.getElementById('proc').value = stranger_tune
 //        SetupButtons()
 //        Proc()
      }
