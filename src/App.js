@@ -88,7 +88,7 @@ export default function StrudelDemo() {
 	// BUT we have stranger_tune so we use this
 	const [songText, setSongText] = useState(stranger_tune)
 	
-	// manages CPM
+/*	// manages CPM
 	const [cpm, setCPM] = useState(120);
 	
 	// when CPM changes (DJ_Controls -> App.js)
@@ -97,8 +97,27 @@ export default function StrudelDemo() {
 		// updates tempo for Tone.js
 		Tone.Transport.bpm.value = newCPM;
 		console.log(`Tempo set to ${newCPM} BPM`);
-	};
+	};*/
 	
+	// added State to manage CPM
+	const [cpm, setCpm] = useState("120"); 
+	
+	// receives CPM and song code and do preprocess
+	const PreprocessCode = (code, cpmValue) => {
+		// convert user input into value (120 if incorrect input)
+		const cpmNumber = parseFloat(cpmValue) || 120;
+		
+		// calculates CPS(Cycles Per Second)
+		const cps = cpmNumber / 60 / 4;
+		
+		// looks for existing setcps() and replace to new line
+		// ^: head of line,  \s*: space more than 0, i: ignores capital and lowercase
+		const codeWithoutOldCps = code.replace(/^setcps\s*\(.*\)\s*\n/i, '');
+		
+		// adds new setcps at the head of song code
+		return `setcps(${cps})\n\n${codeWithoutOldCps}`;
+			
+	}
 
 
 useEffect(() => {
@@ -138,10 +157,13 @@ useEffect(() => {
 //        SetupButtons()
 //        Proc()
      }
-	 /* whenever this func use useEffect file, set code to songText   */
-	 globalEditor.setCode(songText);
+	 // set process code through Preprocess()
+	 const processedCode = PreprocessCode(songText, cpm);
+	 // whenever this func use useEffect file, set code to processCode
+	 globalEditor.setCode(processedCode);	 
+	 // 
 
-}, [songText]);
+}, [songText, cpm]);
 
 
 return (
@@ -170,7 +192,7 @@ return (
                         <div id="output" />
                     </div>
                     <div className="col-md-4">
-                        <DJ_Controls onCPMChange={handleCPMChange} />
+                        <DJ_Controls cpm={cpm} onCpmChange={(newVal) => setCpm(newVal)} />
                     </div>
                 </div>
             </div>
