@@ -72,6 +72,9 @@ export default function StrudelDemo() {
 
 	const hasRun = useRef(false);
 	
+	// take Ref to skip the first execution of CPM
+	const isCpmMount = useRef(true); 
+	
 	// variable for Play button
 	const handlePlay = () => {
 		// checks if it is initialised
@@ -135,7 +138,9 @@ export default function StrudelDemo() {
 			
 	}
 
-
+// Effect 1
+// integrates initialization and contents update
+// put [songText, cpm] to update them whenever the contents change
 useEffect(() => {
 
     if (!hasRun.current) {
@@ -168,12 +173,14 @@ useEffect(() => {
                     await Promise.all([loadModules, registerSynthSounds(), registerSoundfonts()]);
                 },
             });
+	}
             
 //      document.getElementById('proc').value = stranger_tune
 //        SetupButtons()
 //        Proc()
-}
-	 
+
+
+	// ALWAYS executes contents updating
 	if (globalEditor)
 	{
 		// set process code through Preprocess()
@@ -183,6 +190,23 @@ useEffect(() => {
 	}
 
 }, [songText, cpm]);
+
+// Effect 2
+// Live CPM update (while playing)
+useEffect(() => {
+	// 1. skips the executions for the first mount to avoid music start playing when pase loaded
+	if (isCpmMount.current) {
+	    isCpmMount.current = false;
+	    return;
+	}
+	
+	// 2. Live update only when Editor is ready and music is playing
+	// globalEditor.repl.state.started === true avoids auto playing
+	if (globalEditor && globalEditor.repl.state.started === true) {
+		// look at song code and effect new CPM to the playing music
+	    globalEditor.evaluate();
+	}
+}, [cpm]);	// executes only when CPM is changed
 
 
 return (
