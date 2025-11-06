@@ -91,6 +91,13 @@ export default function StrudelDemo() {
 	// manages CPM
 	const [cpm, setCPM] = useState(120);
 	
+	// when CPM changes (DJ_Controls -> App.js)
+	const handleCPMChange = (newCPM) => {
+		setCPM(newCPM);
+		// updates tempo for Tone.js
+		Tone.Transport.bpm.value = newCPM;
+		console.log(`Tempo set to ${newCPM} BPM`);
+	};
 	
 
 
@@ -163,7 +170,7 @@ return (
                         <div id="output" />
                     </div>
                     <div className="col-md-4">
-                        <DJ_Controls />
+                        <DJ_Controls onCPMChange={handleCPMChange} />
                     </div>
                 </div>
             </div>

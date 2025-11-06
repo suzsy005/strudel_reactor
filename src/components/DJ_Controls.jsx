@@ -1,6 +1,12 @@
 function DJ_Controls({ onCPMChange }){
 	
 	// take input value to App.js when users type CPM
+	const handleCPMInput = (e) => {
+	  const value = parseFloat(e.target.value);
+	  if (!isNaN(value)) {
+	    onCPMChange(value);
+	  }
+	};
 	
 	
 	return (
@@ -8,7 +14,15 @@ function DJ_Controls({ onCPMChange }){
 			<div className="input-group mb-3">
 				{/* input feature to change the speed of music(CPM) */}
 				<span className="input-group-text" id="cpm_label">setCPM</span>
-			  	<input type="text" className="form-control" id="cpm_text_input "placeholder="120" aria-label="cpm" aria-describedby="cpm_label" />
+			  	<input 
+					type="text" 
+					className="form-control" 
+					id="cpm_text_input 
+					"placeholder="120" 
+					aria-label="cpm" 
+					aria-describedby="cpm_label"
+					onChange={handleCPMInput} 
+				/>
 			</div>
 			
 			{/* valume range bar feature to change the valume of music */}		  
