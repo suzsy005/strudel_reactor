@@ -2,7 +2,6 @@ function DJ_Controls({ cpm, onCpmChange }){
 	
 	// take input value to App.js when users type CPM
 	const handleCpmInputChange = (event) => {
-	  const value = parseFloat(e.target.value);
 	  	onCpmChange(event.target.value);
 	};
 	
