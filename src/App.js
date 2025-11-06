@@ -96,7 +96,6 @@ export default function StrudelDemo() {
 		{
 			console.error("Editor not ready.");
 		}
-		globalEditor.stop()
 	}
 	
 	// variable for song text
