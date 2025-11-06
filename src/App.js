@@ -126,9 +126,8 @@ useEffect(() => {
 //        SetupButtons()
 //        Proc()
      }
-	 
-	/* whenever this func use useEffect file, set code to songText   */
-	globalEditor.setCode(songText);
+	 /* whenever this func use useEffect file, set code to songText   */
+	 globalEditor.setCode(songText);
 
 }, [songText]);
 
@@ -142,8 +141,7 @@ return (
             <div className="container-fluid">
                 <div className="row">
                     <div className="col-md-8" style={{ maxHeight: '50vh', overflowY: 'auto' }}>
-						/* To make sure it selects the text area, I made variable e, instead of {setSongText} */
-                    	<PreprocessTextarea defaultValue="{songText}" onChange={(e) => setSongText(e.target.value)} />
+                    	<PreprocessTextarea />
 					</div>
                     <div className="col-md-4">
 
