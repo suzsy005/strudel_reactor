@@ -108,7 +108,7 @@ export default function StrudelDemo() {
 	const [songText, setSongText] = useState(stranger_tune)
 	
 /*	// manages CPM
-	const [cpm, setCPM] = useState(120);
+	const [cpm, setCPM] = useState(140);
 	
 	// when CPM changes (DJ_Controls -> App.js)
 	const handleCPMChange = (newCPM) => {
@@ -119,12 +119,12 @@ export default function StrudelDemo() {
 	};*/
 	
 	// added State to manage CPM
-	const [cpm, setCpm] = useState("120"); 
+	const [cpm, setCpm] = useState("140"); 
 	
 	// receives CPM and song code and do preprocess
 	const PreprocessCode = (code, cpmValue) => {
-		// convert user input into value (120 if incorrect input)
-		const cpmNumber = parseFloat(cpmValue) || 120;
+		// convert user input into value (140 if incorrect input)
+		const cpmNumber = parseFloat(cpmValue) || 140;
 		
 		// calculates CPS(Cycles Per Second)
 		const cps = cpmNumber / 60 / 4;
