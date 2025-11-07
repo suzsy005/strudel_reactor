@@ -48,6 +48,13 @@
 
 	/* set max-width again to put center */
 	max-width: 500px;
+	
+	/* added shadow to make it 3D */
+	box-shadow: 0 10px 20px rgba(0, 0, 0, 0.5); 
+	   
+	/* makes contents clear by setting white */
+	background-color: #f8f9fa;
+	   
 
 
 }
