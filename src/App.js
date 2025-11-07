@@ -107,22 +107,12 @@ export default function StrudelDemo() {
 	// BUT we have stranger_tune so we use this
 	const [songText, setSongText] = useState(stranger_tune)
 	
-/*	// manages CPM
-	const [cpm, setCPM] = useState(140);
-	
-	// when CPM changes (DJ_Controls -> App.js)
-	const handleCPMChange = (newCPM) => {
-		setCPM(newCPM);
-		// updates tempo for Tone.js
-		Tone.Transport.bpm.value = newCPM;
-		console.log(`Tempo set to ${newCPM} BPM`);
-	};*/
-	
 	// added State to manage CPM
 	const [cpm, setCpm] = useState("140"); 
 	
 	// receives CPM and song code and do preprocess
 	const PreprocessCode = (code, cpmValue) => {
+		
 		// convert user input into value (140 if incorrect input)
 		const cpmNumber = parseFloat(cpmValue) || 140;
 		
@@ -148,37 +138,32 @@ export default function StrudelDemo() {
 	        console_monkey_patch();
 	        hasRun.current = true;
 	        //Code copied from example: https://codeberg.org/uzu/strudel/src/branch/main/examples/codemirror-repl
-	            //init canvas
-	            const canvas = document.getElementById('roll');
-	            canvas.width = canvas.width * 2;
-	            canvas.height = canvas.height * 2;
-	            const drawContext = canvas.getContext('2d');
-	            const drawTime = [-2, 2]; // time window of drawn haps
-	            globalEditor = new StrudelMirror({
-	                defaultOutput: webaudioOutput,
-	                getTime: () => getAudioContext().currentTime,
-	                transpiler,
-	                root: document.getElementById('editor'),
-	                drawTime,
-	                onDraw: (haps, time) => drawPianoroll({ haps, time, ctx: drawContext, drawTime, fold: 0 }),
-	                prebake: async () => {
-	                    initAudioOnFirstClick(); // needed to make the browser happy (don't await this here..)
-	                    const loadModules = evalScope(
-	                        import('@strudel/core'),
-	                        import('@strudel/draw'),
-	                        import('@strudel/mini'),
-	                        import('@strudel/tonal'),
-	                        import('@strudel/webaudio'),
-	                    );
-	                    await Promise.all([loadModules, registerSynthSounds(), registerSoundfonts()]);
-	                },
-	            });
-		}
-            
-	//      document.getElementById('proc').value = stranger_tune
-	//        SetupButtons()
-	//        Proc()
-	
+            //init canvas
+            const canvas = document.getElementById('roll');
+            canvas.width = canvas.width * 2;
+            canvas.height = canvas.height * 2;
+            const drawContext = canvas.getContext('2d');
+            const drawTime = [-2, 2]; // time window of drawn haps
+            globalEditor = new StrudelMirror({
+                defaultOutput: webaudioOutput,
+                getTime: () => getAudioContext().currentTime,
+                transpiler,
+                root: document.getElementById('editor'),
+                drawTime,
+                onDraw: (haps, time) => drawPianoroll({ haps, time, ctx: drawContext, drawTime, fold: 0 }),
+                prebake: async () => {
+                    initAudioOnFirstClick(); // needed to make the browser happy (don't await this here..)
+                    const loadModules = evalScope(
+                        import('@strudel/core'),
+                        import('@strudel/draw'),
+                        import('@strudel/mini'),
+                        import('@strudel/tonal'),
+                        import('@strudel/webaudio'),
+                    );
+                    await Promise.all([loadModules, registerSynthSounds(), registerSoundfonts()]);
+                },
+            });
+		}	
 	
 		// ALWAYS executes contents updating
 		if (globalEditor)
@@ -188,7 +173,6 @@ export default function StrudelDemo() {
 			// whenever this func use useEffect file, set code to processCode
 			globalEditor.setCode(processedCode);	 
 		}
-	
 	}, [songText, cpm]);
 	
 	// Effect 2
@@ -234,7 +218,6 @@ export default function StrudelDemo() {
 					</div>
 					<div className="row mb-3">
 						<div className="col-12">
-		
 						    <nav>
 								{/* <ProcButtons /> */}
 						        <br />
@@ -252,5 +235,4 @@ export default function StrudelDemo() {
 	        </main >
 	    </div >
 	);
-	
 }

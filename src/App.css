@@ -39,6 +39,8 @@
   }
 }
 
+
+/* this is for mobile-looking design */
 .phone-frame {
 	/* set border */
 	border: 10px solid #333;
@@ -54,9 +56,6 @@
 	   
 	/* makes contents clear by setting white */
 	background-color: #f8f9fa;
-	   
-
-
 }
 
 

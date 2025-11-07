@@ -5,7 +5,6 @@ function DJ_Controls({ cpm, onCpmChange }){
 	  	onCpmChange(event.target.value);
 	};
 	
-	
 	return (
 		<>
 			<div className="input-group mb-3">
@@ -48,7 +47,6 @@ function DJ_Controls({ cpm, onCpmChange }){
 				  </label>
 				</div>
 			</div>
-
 		</>
 	); 
 }

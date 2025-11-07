@@ -25,6 +25,4 @@ function PlayButtons({ onPlay, onStop }) {
 	);
 }
 
-
-
 export default PlayButtons; 
