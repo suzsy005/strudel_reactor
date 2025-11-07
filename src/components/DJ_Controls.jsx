@@ -27,25 +27,28 @@ function DJ_Controls({ cpm, onCpmChange }){
 			<label htmlFor="valume_range" className="form-label">Valume</label>
 			<input type="range" className="form-range" min="0" max="1" step="0.05" id="valume_range" />
 
-			{/* instruments checkbox feature to turn on/off instruments */}		  	
-			<div className="form-check">
-			  <input className="form-check-input" type="checkbox" value="" id="s1" />
-			  <label className="form-check-label" htmlFor="s1">
-			  	s1
-			  </label>
+			{/* instruments checkbox feature to turn on/off instruments */}
+			<div className="row justify-content-evenly pt-3">
+				<div className="form-check col-2">
+				  <input className="form-check-input" type="checkbox" value="" id="drums1" />
+				  <label className="form-check-label" htmlFor="drums1">
+				  	drums1
+				  </label>
+				</div>
+				<div className="form-check col-2">
+				  <input className="form-check-input" type="checkbox" value="" id="drums2" />
+				  <label className="form-check-label" htmlFor="drums2">
+				  	drums2
+				  </label>
+				</div>
+				<div className="form-check col-2">
+				  <input className="form-check-input" type="checkbox" value="" id="handcrap1" />
+				  <label className="form-check-label" htmlFor="handcrap1">
+				    handcrap1
+				  </label>
+				</div>
 			</div>
-			<div className="form-check">
-			  <input className="form-check-input" type="checkbox" value="" id="d1" />
-			  <label className="form-check-label" htmlFor="d1">
-			  	d1
-			  </label>
-			</div>
-			<div className="form-check">
-			  <input className="form-check-input" type="checkbox" value="" id="d2" />
-			  <label className="form-check-label" htmlFor="d2">
-			    d2
-			  </label>
-			</div>
+
 		</>
 	); 
 }
