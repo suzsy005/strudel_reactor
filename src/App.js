@@ -138,111 +138,113 @@ export default function StrudelDemo() {
 			
 	}
 
-// Effect 1
-// integrates initialization and contents update
-// put [songText, cpm] to update them whenever the contents change
-useEffect(() => {
-
-    if (!hasRun.current) {
-        document.addEventListener("d3Data", handleD3Data);
-        console_monkey_patch();
-        hasRun.current = true;
-        //Code copied from example: https://codeberg.org/uzu/strudel/src/branch/main/examples/codemirror-repl
-            //init canvas
-            const canvas = document.getElementById('roll');
-            canvas.width = canvas.width * 2;
-            canvas.height = canvas.height * 2;
-            const drawContext = canvas.getContext('2d');
-            const drawTime = [-2, 2]; // time window of drawn haps
-            globalEditor = new StrudelMirror({
-                defaultOutput: webaudioOutput,
-                getTime: () => getAudioContext().currentTime,
-                transpiler,
-                root: document.getElementById('editor'),
-                drawTime,
-                onDraw: (haps, time) => drawPianoroll({ haps, time, ctx: drawContext, drawTime, fold: 0 }),
-                prebake: async () => {
-                    initAudioOnFirstClick(); // needed to make the browser happy (don't await this here..)
-                    const loadModules = evalScope(
-                        import('@strudel/core'),
-                        import('@strudel/draw'),
-                        import('@strudel/mini'),
-                        import('@strudel/tonal'),
-                        import('@strudel/webaudio'),
-                    );
-                    await Promise.all([loadModules, registerSynthSounds(), registerSoundfonts()]);
-                },
-            });
-	}
-            
-//      document.getElementById('proc').value = stranger_tune
-//        SetupButtons()
-//        Proc()
-
-
-	// ALWAYS executes contents updating
-	if (globalEditor)
-	{
-		// set process code through Preprocess()
-		const processedCode = PreprocessCode(songText, cpm);
-		// whenever this func use useEffect file, set code to processCode
-		globalEditor.setCode(processedCode);	 
-	}
-
-}, [songText, cpm]);
-
-// Effect 2
-// Live CPM update (while playing)
-useEffect(() => {
-	// 1. skips the executions for the first mount to avoid music start playing when pase loaded
-	if (isCpmMount.current) {
-	    isCpmMount.current = false;
-	    return;
-	}
+	// Effect 1
+	// integrates initialization and contents update
+	// put [songText, cpm] to update them whenever the contents change
+	useEffect(() => {
 	
-	// 2. Live update only when Editor is ready and music is playing
-	// globalEditor.repl.state.started === true avoids auto playing
-	if (globalEditor && globalEditor.repl.state.started === true) {
-		// look at song code and effect new CPM to the playing music
-	    globalEditor.evaluate();
-	}
-}, [cpm]);	// executes only when CPM is changed
-
-
-return (
-    <div>
-        <h2>Strudel Demo</h2>
-		<h3>Test text </h3>
-        <main>
-
-            <div className="container-fluid">
-                <div className="row">
-                    <div className="col-md-8" style={{ maxHeight: '50vh', overflowY: 'auto' }}>
-                    	<PreprocessTextarea defaultValue={songText} onChange={(e) => setSongText(e.target.value)} />
+	    if (!hasRun.current) {
+	        document.addEventListener("d3Data", handleD3Data);
+	        console_monkey_patch();
+	        hasRun.current = true;
+	        //Code copied from example: https://codeberg.org/uzu/strudel/src/branch/main/examples/codemirror-repl
+	            //init canvas
+	            const canvas = document.getElementById('roll');
+	            canvas.width = canvas.width * 2;
+	            canvas.height = canvas.height * 2;
+	            const drawContext = canvas.getContext('2d');
+	            const drawTime = [-2, 2]; // time window of drawn haps
+	            globalEditor = new StrudelMirror({
+	                defaultOutput: webaudioOutput,
+	                getTime: () => getAudioContext().currentTime,
+	                transpiler,
+	                root: document.getElementById('editor'),
+	                drawTime,
+	                onDraw: (haps, time) => drawPianoroll({ haps, time, ctx: drawContext, drawTime, fold: 0 }),
+	                prebake: async () => {
+	                    initAudioOnFirstClick(); // needed to make the browser happy (don't await this here..)
+	                    const loadModules = evalScope(
+	                        import('@strudel/core'),
+	                        import('@strudel/draw'),
+	                        import('@strudel/mini'),
+	                        import('@strudel/tonal'),
+	                        import('@strudel/webaudio'),
+	                    );
+	                    await Promise.all([loadModules, registerSynthSounds(), registerSoundfonts()]);
+	                },
+	            });
+		}
+            
+	//      document.getElementById('proc').value = stranger_tune
+	//        SetupButtons()
+	//        Proc()
+	
+	
+		// ALWAYS executes contents updating
+		if (globalEditor)
+		{
+			// set process code through Preprocess()
+			const processedCode = PreprocessCode(songText, cpm);
+			// whenever this func use useEffect file, set code to processCode
+			globalEditor.setCode(processedCode);	 
+		}
+	
+	}, [songText, cpm]);
+	
+	// Effect 2
+	// Live CPM update (while playing)
+	useEffect(() => {
+		// 1. skips the executions for the first mount to avoid music start playing when pase loaded
+		if (isCpmMount.current) {
+		    isCpmMount.current = false;
+		    return;
+		}
+		
+		// 2. Live update only when Editor is ready and music is playing
+		// globalEditor.repl.state.started === true avoids auto playing
+		if (globalEditor && globalEditor.repl.state.started === true) {
+			// look at song code and effect new CPM to the playing music
+		    globalEditor.evaluate();
+		}
+	}, [cpm]);	// executes only when CPM is changed
+	
+	
+	return (
+	    <div>
+	        <h2>Strudel Demo</h2>
+	        <main>
+				{/* wrap all the contents in this wraper*/}
+				<div className="phone-frame col-md-4 mx-auto p-3 mb-5">
+	                <div className="row mb-3">
+	                    <div className="col-12" style={{ maxHeight: '20vh', overflowY: 'auto' }}>
+	                    	<PreprocessTextarea defaultValue={songText} onChange={(e) => setSongText(e.target.value)} />
+						</div>
+	                </div>
+	                <div className="row mb-3">
+	                    <div className="col-12" style={{ maxHeight: '20vh', overflowY: 'auto' }}>
+	                        <div id="editor" />
+	                        <div id="output" />
+	                    </div>
+	                </div>
+					<div className="row mb-3">
+						<div className="col-12">
+		
+						    <nav>
+								{/* <ProcButtons /> */}
+						        <br />
+								<PlayButtons onPlay={handlePlay} onStop={handleStop} />
+						    </nav>
+						</div>
 					</div>
-                    <div className="col-md-4">
-
-                        <nav>
-							<ProcButtons />
-                            <br />
-							<PlayButtons onPlay={handlePlay} onStop={handleStop} />
-                        </nav>
-                    </div>
-                </div>
-                <div className="row">
-                    <div className="col-md-8" style={{ maxHeight: '50vh', overflowY: 'auto' }}>
-                        <div id="editor" />
-                        <div id="output" />
-                    </div>
-                    <div className="col-md-4">
-                        <DJ_Controls cpm={cpm} onCpmChange={(newVal) => setCpm(newVal)} />
-                    </div>
-                </div>
-            </div>
-            <canvas id="roll"></canvas>
-        </main >
-    </div >
-);
-
-
+					<div className="row mb-3">
+						<div className="col-12">
+						    <DJ_Controls cpm={cpm} onCpmChange={(newVal) => setCpm(newVal)} />
+						</div>
+					</div>
+	            </div>
+	            <canvas id="roll"></canvas>
+	        </main >
+	    </div >
+	);
+	
 }

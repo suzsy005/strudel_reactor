@@ -36,3 +36,31 @@
     transform: rotate(360deg);
   }
 }
+
+.phone-frame {
+	/* set border */
+	border: 10px solid #333;
+
+	/* rounded corner */
+	border-radius: 30px; 
+
+	/* set max-width again to put center */
+	max-width: 450px;
+
+
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
