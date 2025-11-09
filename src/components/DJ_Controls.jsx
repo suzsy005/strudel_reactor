@@ -43,10 +43,31 @@ function DJ_Controls({ cpm, onCpmChange }){
 				<div className="form-check col-2">
 				  <input className="form-check-input" type="checkbox" value="" id="handcrap1" />
 				  <label className="form-check-label" htmlFor="handcrap1">
-				    handcrap1
+				  	drums3
 				  </label>
 				</div>
 			</div>
+			<div className="row justify-content-evenly pt-3">
+				<div className="form-check col-2">
+				  <input className="form-check-input" type="checkbox" value="" id="drums1" />
+				  <label className="form-check-label" htmlFor="drums1">
+				  	handcrap1
+				  </label>
+				</div>
+				<div className="form-check col-2">
+				  <input className="form-check-input" type="checkbox" value="" id="drums2" />
+				  <label className="form-check-label" htmlFor="drums2">
+				  	handcrap2
+				  </label>
+				</div>
+				<div className="form-check col-2">
+				  <input className="form-check-input" type="checkbox" value="" id="handcrap1" />
+				  <label className="form-check-label" htmlFor="handcrap1">
+				    handcrap3
+				  </label>
+				</div>
+			</div>
+
 		</>
 	); 
 }
