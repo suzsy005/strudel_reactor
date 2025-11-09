@@ -1,5 +1,20 @@
 # Test commit
-# Test commit 2
+# What I'm going to add to this Strudel Reactor for Part 2 submittion (I'll going to add more later when I come up with)
+### Updated on 9th Nov
+### 'Uncompleted functions (volume range bar, instruments buttons, etc.)'
+
+These are essential not to menthion.
+
+### 'multiple songs'
+
+I'm looking to add a function which allows users to skip/back to songs.
+To make this happen, I need to make more than 3 songs.
+
+### 'Music Video' (more like What I want to try)
+
+I'll create a butotn that bring users to music video
+
+
 
 # Getting Started with Create React App
 
