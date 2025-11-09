@@ -216,6 +216,10 @@ export default function StrudelDemo() {
 					<div className="text text-center fs-3 fw-bold">
 						Music Title
 					</div>
+					<div className="text text-left fs-3 fw-bold">
+						Singer Name
+					</div>
+
 					<div className="row mb-3">
 						<div className="col-12">
 						    <nav>
