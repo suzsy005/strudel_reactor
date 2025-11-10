@@ -24,7 +24,7 @@ function DJ_Controls({ cpm, onCpmChange }){
 			
 			{/* valume range bar feature to change the valume of music */}		  
 			<label htmlFor="valume_range" className="form-label">Valume</label>
-			<input type="range" className="form-range" min="0" max="1" step="0.05" id="valume_range" />
+			<input type="range" className="form-range" min="0" max="2" step="0.1" onMouseUp={onVolumeChange} id="valume_range" />
 
 			{/* instruments checkbox feature to turn on/off instruments */}
 			<div className="row justify-content-evenly pt-3">

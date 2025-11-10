@@ -151,7 +151,7 @@ export default function StrudelDemo() {
 			handlePlay();
 		}
 		
-	})
+	}, [volume])
 	
 
 	// Effect 1
@@ -252,12 +252,14 @@ export default function StrudelDemo() {
 								{/* <ProcButtons /> */}
 						        <br />
 								<PlayButtons onPlay={handlePlay} onStop={handleStop} />
+								<PlayButtons onPlay={() => { setState("play"); handlePlay() }} onStop={() => { setState("stop"); handleStop() }} />
 						    </nav>
 						</div>
 					</div>
 					<div className="row mb-3">
 						<div className="col-12">
 						    <DJ_Controls cpm={cpm} onCpmChange={(newVal) => setCpm(newVal)} />
+							<DJ_Controls volumeChange={volume} onVolumeChange={(e) => setVolume(e.target.value)} />
 						</div>
 					</div>
 	            </div>
