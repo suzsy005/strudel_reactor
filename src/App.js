@@ -79,7 +79,7 @@ export default function StrudelDemo() {
 	// variable for Play button
 	const handlePlay = () => {
 		
-		// this is for CPM function
+		// this if statement is for CPM function
 		// checks if it is initialised
 		if (globalEditor)
 		{
@@ -94,9 +94,6 @@ export default function StrudelDemo() {
 		{
 			console.error("Editor not ready.");
 		}
-		
-
-		
 		
 	}
 	
@@ -113,6 +110,7 @@ export default function StrudelDemo() {
 		}
 	}
 	
+	// these codes below are for CPM function
 	// variable for song text
 	// songText is getter, setSongText is setter
 	// can set initial value nothing(empty) by default
@@ -139,6 +137,22 @@ export default function StrudelDemo() {
 		return `setcps(${cps})\n\n${codeWithoutOldCps}`;
 			
 	}
+	
+	
+	// these codes below are for volume bar function
+	const [state, setState] = useState("stop");
+	
+	// Effect 3
+	// hooks volume
+	useEffect(() => {
+		
+		// play music only when "play" button is hit
+		if (state === "play") {
+			handlePlay();
+		}
+		
+	})
+	
 
 	// Effect 1
 	// integrates initialization and contents update
