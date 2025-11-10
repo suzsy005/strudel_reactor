@@ -14,7 +14,7 @@ import PlayButtons from './components/PlayButtons';
 import ProcButtons from './components/ProcButtons';
 import PreprocessTextarea from './components/PreprocessTextarea';
 import * as Tone from "tone";	// for user CPM input function
-import { PreprocessLogic } from './utils/PreprocesLodic';	// for volume range bar function
+import { PreprocessLogic } from './utils/PreprocessLogic';	// for volume range bar function
 
 
 

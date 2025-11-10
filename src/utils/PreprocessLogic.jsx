@@ -36,6 +36,15 @@ export function Preprocess ({ inputText, volume }) {
 	);
 	
 	
+	// replaces the origianl text with matches2
+	let matches3 = matches.reduce(
+		(text, original, i) => text.replaceAll(original, matches2[i]), outputText
+	);
+	
+	console.log(matches3);
+	
+	// returns re-build outputText
+	return matches3;
 	
 	
 
