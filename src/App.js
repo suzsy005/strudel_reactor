@@ -13,7 +13,8 @@ import DJ_Controls from './components/DJ_Controls';
 import PlayButtons from './components/PlayButtons';
 import ProcButtons from './components/ProcButtons';
 import PreprocessTextarea from './components/PreprocessTextarea';
-import * as Tone from "tone";	// for updating CPM
+import * as Tone from "tone";	// for user CPM input function
+import { PreprocessLogic } from './utils/PreprocesLodic';	// for volume range bar function
 
 
 
@@ -77,15 +78,26 @@ export default function StrudelDemo() {
 	
 	// variable for Play button
 	const handlePlay = () => {
+		
+		// this is for CPM function
 		// checks if it is initialised
 		if (globalEditor)
 		{
+			// this is for volume bar function
+			// this Preprocess handles everything, which is inputText(music code) and volume
+			let outputText = Preprocess({ inputText: procText, volume: volume })
+			globalEditor.setCode(outputText);
 			globalEditor.evaluate()
+			
 		}
 		else
 		{
 			console.error("Editor not ready.");
 		}
+		
+
+		
+		
 	}
 	
 	// variable for Stop button
