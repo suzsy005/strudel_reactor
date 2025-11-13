@@ -140,6 +140,8 @@ export default function StrudelDemo() {
 	
 	
 	// these codes below are for volume bar function
+	const [volume, setVolume] = useState(1);
+	
 	const [state, setState] = useState("stop");
 	
 	// Effect 3
