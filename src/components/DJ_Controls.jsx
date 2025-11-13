@@ -1,4 +1,4 @@
-function DJ_Controls({ cpm, onCpmChange }){
+function DJ_Controls({ cpm, onCpmChange, onVolumeChange }){
 	
 	// take input value to App.js when users type CPM
 	const handleCpmInputChange = (event) => {
