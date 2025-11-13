@@ -260,8 +260,7 @@ export default function StrudelDemo() {
 					</div>
 					<div className="row mb-3">
 						<div className="col-12">
-						    <DJ_Controls cpm={cpm} onCpmChange={(newVal) => setCpm(newVal)} />
-							<DJ_Controls volumeChange={volume} onVolumeChange={(e) => setVolume(e.target.value)} />
+						    <DJ_Controls cpm={cpm} onCpmChange={(newVal) => setCpm(newVal)}　volumeChange={volume} onVolumeChange={(e) => setVolume(e.target.value)} />
 						</div>
 					</div>
 	            </div>
