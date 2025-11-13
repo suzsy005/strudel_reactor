@@ -14,7 +14,7 @@ import PlayButtons from './components/PlayButtons';
 import ProcButtons from './components/ProcButtons';
 import PreprocessTextarea from './components/PreprocessTextarea';
 import * as Tone from "tone";	// for user CPM input function
-import { PreprocessLogic } from './utils/PreprocessLogic';	// for volume range bar function
+import { Preprocess } from './utils/PreprocessLogic';	// for volume range bar function
 
 
 
@@ -260,7 +260,13 @@ export default function StrudelDemo() {
 					</div>
 					<div className="row mb-3">
 						<div className="col-12">
-						    <DJ_Controls cpm={cpm} onCpmChange={(newVal) => setCpm(newVal)}　volumeChange={volume} onVolumeChange={(e) => setVolume(e.target.value)} />
+						    <DJ_Controls 
+								// props for CPM
+								cpm={cpm} 
+								onCpmChange={(newVal) => setCpm(newVal)}　
+								// props for volume range bar
+								volumeChange={volume} 
+								onVolumeChange={(e) => setVolume(e.target.value)} />
 						</div>
 					</div>
 	            </div>
