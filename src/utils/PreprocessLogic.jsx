@@ -1,6 +1,7 @@
 export function Preprocess ({ inputText, volume }) {
 	
-	// 
+	// uses inputText as initial value
+	let outputText = inputText;
 	outputText = outputText.replaceAll("{VOLUME}", volume)
 	
 	// regex 1

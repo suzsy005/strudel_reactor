@@ -83,10 +83,16 @@ export default function StrudelDemo() {
 		// checks if it is initialised
 		if (globalEditor)
 		{
+			// creates the codes with CPM (CPM preprocessed codes)
+			const codeWithCPM = PreprocessCode(songText, cpm);
+			
 			// this is for volume bar function
-			// this Preprocess handles everything, which is inputText(music code) and volume
-			let outputText = Preprocess({ inputText: procText, volume: volume })
-			globalEditor.setCode(outputText);
+			// inputText: gives codeWithCPM(CPM preprocessed codes)
+			// volume: gives the value of volume State
+			const finalCode = Preprocess({ inputText: codeWithCPM, volume: volume });
+			
+			// set the finalCode and play music
+			globalEditor.setCode(finalCode);
 			globalEditor.evaluate()
 			
 		}
@@ -140,7 +146,7 @@ export default function StrudelDemo() {
 	
 	
 	// these codes below are for volume bar function
-	const [volume, setVolume] = useState(1);
+	const [volume, setVolume] = useState("1");
 	
 	const [state, setState] = useState("stop");
 	
