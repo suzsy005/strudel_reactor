@@ -76,6 +76,9 @@ export default function StrudelDemo() {
 	// take Ref to skip the first execution of CPM
 	const isCpmMount = useRef(true); 
 	
+	// skips the first execution when volume changes 
+	const isVolumeMount = useRef(true);
+	
 	// variable for Play button
 	const handlePlay = () => {
 		
@@ -153,6 +156,12 @@ export default function StrudelDemo() {
 	// Effect 3
 	// hooks volume
 	useEffect(() => {
+		
+		// skips an execution when it is first mount
+		if (isVolumeMount.current) {
+			isVolumeMount.current = false;
+			return;
+		}
 		
 		// play music only when "play" button is hit
 		if (state === "play") {
