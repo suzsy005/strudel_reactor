@@ -163,6 +163,10 @@ export default function StrudelDemo() {
 			return;
 		}
 		
+		// when Editor is ready AND music is "Playing", then LIVE update
+		if (globalEditor && globalEditor.repl.state.started === true) {		
+			handlePlay();
+		}	
 		// play music only when "play" button is hit
 		if (state === "play") {
 			handlePlay();
