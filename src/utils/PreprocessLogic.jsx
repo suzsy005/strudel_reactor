@@ -32,7 +32,7 @@ export function Preprocess ({ inputText, volume }) {
 		match => match.replaceAll(/(?<!post)gain\(([\d.]+)\)/g, (match, captureGroup) => 
 		  // example
 		  //'gain(0.1*2)'
-			'gain(${captureGroup}*${volume})'
+			`gain(${captureGroup}*${volume})`
 		)
 	);
 	
