@@ -17,7 +17,7 @@ export function Preprocess ({ inputText, volume }) {
 	while ((m = regex.exec(outputText)) !== null) {
 		// this is necessary to avoid infinite loops with zero-width matches
 		if (m.index === regex.lastIndex) {
-			regex.lastIntex++;
+			regex.lastIndex++;
 		}
 		
 		// the result can be accessed through the 'm'-variable
