@@ -130,6 +130,33 @@ export default function StrudelDemo() {
 		URL.revokeObjectURL(url);
 		
 	}
+	
+	// Added JSON function: read JSON file and apply a setting
+	const handleLoadJson = (event) => {
+	        const file = event.target.files[0];
+	        if (!file) {
+	            return;
+	        }
+			
+			const reader = new FileReader();
+			reader.onload = (e) => {
+				try {
+				    const loadedSettings = JSON.parse(e.target.result);
+				    
+				    // check and set data
+				    if (loadedSettings.cpm !== undefined) {
+				        setCpm(loadedSettings.cpm.toString());
+				    }
+				    if (loadedSettings.volume !== undefined) {
+				        setVolume(loadedSettings.volume.toString());
+				    }
+
+					// after applying a setting, it triggers the update if music is being played
+				    if (globalEditor && globalEditor.repl.state.started === true) {
+				        handlePlay();
+				    }				
+			}
+	
 
 	// Effect 1
 	// integrates initialization and contents update
