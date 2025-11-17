@@ -1,3 +1,6 @@
+import { useRef } from "react";
+
+
 function DJ_Controls({ cpm, onCpmChange, volume, onVolumeChange, onSaveJson, onLoadJson }){
 	
 	// take input value to App.js when users type CPM
