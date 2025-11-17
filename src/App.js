@@ -167,10 +167,10 @@ export default function StrudelDemo() {
 		if (globalEditor && globalEditor.repl.state.started === true) {		
 			handlePlay();
 		}	
-		// play music only when "play" button is hit
-		if (state === "play") {
-			handlePlay();
-		}
+//		// play music only when "play" button is hit
+//		if (state === "play") {
+//			handlePlay();
+//		}
 		
 	}, [volume])
 	
@@ -272,8 +272,9 @@ export default function StrudelDemo() {
 						    <nav>
 								{/* <ProcButtons /> */}
 						        <br />
+								{/* <PlayButtons onPlay={handlePlay} onStop={handleStop} /> */}
+								{/* <PlayButtons onPlay={() => { setState("play"); handlePlay() }} onStop={() => { setState("stop"); handleStop() }} /> */}
 								<PlayButtons onPlay={handlePlay} onStop={handleStop} />
-								<PlayButtons onPlay={() => { setState("play"); handlePlay() }} onStop={() => { setState("stop"); handleStop() }} />
 						    </nav>
 						</div>
 					</div>
@@ -284,7 +285,7 @@ export default function StrudelDemo() {
 								cpm={cpm} 
 								onCpmChange={(newVal) => setCpm(newVal)}　
 								// props for volume range bar
-								volumeChange={volume} 
+								volume={volume} 
 								onVolumeChange={(e) => setVolume(e.target.value)} />
 						</div>
 					</div>
