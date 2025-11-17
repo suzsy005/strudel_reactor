@@ -155,8 +155,13 @@ export default function StrudelDemo() {
 				    if (globalEditor && globalEditor.repl.state.started === true) {
 				        handlePlay();
 				    }				
-			}
-	
+				} catch (error) {
+					console.error("Error loading JSON settings:", error);
+			    	console.warn("Errors reading a file. Check the format of JSON file.");
+	          	}
+			};
+			reader.readAsText(file);
+	};
 
 	// Effect 1
 	// integrates initialization and contents update
@@ -283,9 +288,16 @@ export default function StrudelDemo() {
 								// props for CPM
 								cpm={cpm} 
 								onCpmChange={(newVal) => setCpm(newVal)}　
+								
 								// props for volume range bar
 								volume={volume} 
-								onVolumeChange={(e) => setVolume(e.target.value)} />
+								onVolumeChange={(e) => setVolume(e.target.value)} 
+								
+								// props for JSON handling
+								onSaveJson={handleSaveJson}
+								onLoadJson={handleLoadJson}
+
+								/>
 						</div>
 					</div>
 	            </div>
