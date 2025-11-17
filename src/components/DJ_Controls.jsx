@@ -1,4 +1,4 @@
-function DJ_Controls({ cpm, onCpmChange, volume, onVolumeChange }){
+function DJ_Controls({ cpm, onCpmChange, volume, onVolumeChange, onSaveJson, onLoadJson }){
 	
 	// take input value to App.js when users type CPM
 	const handleCpmInputChange = (event) => {
@@ -9,6 +9,10 @@ function DJ_Controls({ cpm, onCpmChange, volume, onVolumeChange }){
 	const handleVolumeChange = (event) => {
 		onVolumeChange(event);
 	};
+	
+	// reference to hidden Input element to open the file choice dialog
+	const fileInputRef = useRef(null);
+
 	
 	return (
 		<>
@@ -38,6 +42,33 @@ function DJ_Controls({ cpm, onCpmChange, volume, onVolumeChange }){
 					onChange={handleVolumeChange} 
 					value={volume} 
 					id="valume_range" />
+					
+			{/* JSON Save/Load buttons */}
+			<div className="row justify-content-evenly pt-3">
+			    {/* Save Button */}
+				<button 
+			        className="btn btn-outline-success m-1 col-5" 
+			        onClick={onSaveJson}
+			    >
+				<i className="bi bi-download"></i> Save Settings
+				</button>
+			    
+			    {/* Load Button */}
+			    <input
+			        type="file"
+			        ref={fileInputRef}
+			        onChange={onLoadJson}
+			        style={{ display: 'none' }}
+			        accept=".json"
+			    />
+				<button 
+			        className="btn btn-outline-info m-1 col-5" 
+					// clicking button starts file input
+			        onClick={() => fileInputRef.current && fileInputRef.current.click()}
+			    >
+				<i className="bi bi-upload"></i> Load Settings
+				</button>
+			</div>
 
 			{/* instruments checkbox feature to turn on/off instruments */}
 			<div className="row justify-content-evenly pt-3">
