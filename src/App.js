@@ -16,7 +16,7 @@ import PreprocessTextarea from './components/PreprocessTextarea';
 import * as Tone from "tone";	// for user CPM input function
 import { Preprocess } from './utils/PreprocessLogic';	// for volume range bar function
 
-
+// test
 
 let globalEditor = null;
 
@@ -151,7 +151,7 @@ export default function StrudelDemo() {
 	// these codes below are for volume bar function
 	const [volume, setVolume] = useState("1");
 	
-	const [state, setState] = useState("stop");
+//	const [state, setState] = useState("stop");
 	
 	// Effect 3
 	// hooks volume
