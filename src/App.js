@@ -116,6 +116,19 @@ export default function StrudelDemo() {
 		// 2. change JSON obj to string
 		const jsonString = JSON.stringify(settings, null, 2);
 		
+		// 3. creates a Blog to donwload as file
+		const blob = new Blob([jsonString], { type: 'application/json' });
+		const url = URL.createObjectURL(blob);
+		
+		// 4. creates the link for download, which users click
+		const a = document.createElement('a');
+		a.href = url;
+		a.download = `strudel_dj_settings_${Date.now()}.json`;
+		document.body.appendChild(a);
+		a.click();
+		document.body.removeChild(a);
+		URL.revokeObjectURL(url);
+		
 	}
 
 	// Effect 1
