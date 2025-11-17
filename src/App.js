@@ -16,8 +16,6 @@ import PreprocessTextarea from './components/PreprocessTextarea';
 import * as Tone from "tone";	// for user CPM input function
 import { Preprocess } from './utils/PreprocessLogic';	// for volume range bar function
 
-// test
-// test 2
 
 let globalEditor = null;
 
@@ -25,50 +23,6 @@ const handleD3Data = (event) => {
     console.log(event.detail);
 };
 
-//export function SetupButtons() {
-//
-//    document.getElementById('play').addEventListener('click', () => globalEditor.evaluate());
-//    document.getElementById('stop').addEventListener('click', () => globalEditor.stop());
-//    document.getElementById('process').addEventListener('click', () => {
-//        Proc()
-//    }
-//    )
-//    document.getElementById('process_play').addEventListener('click', () => {
-//        if (globalEditor != null) {
-//            Proc()
-//            globalEditor.evaluate()
-//        }
-//    }
-//    )
-//}
-
-
-
-//export function ProcAndPlay() {
-//    if (globalEditor != null && globalEditor.repl.state.started == true) {
-//        console.log(globalEditor)
-//        Proc()
-//        globalEditor.evaluate();
-//    }
-//}
-
-//export function Proc() {
-//
-//    let proc_text = document.getElementById('proc').value
-//    let proc_text_replaced = proc_text.replaceAll('<p1_Radio>', ProcessText);
-//    ProcessText(proc_text);
-//    globalEditor.setCode(proc_text_replaced)
-//}
-
-//export function ProcessText(match, ...args) {
-//
-//    let replace = ""
-////    if (document.getElementById('flexRadioDefault2').checked) {
-////        replace = "_"
-////    }
-//
-//    return replace
-//}
 
 export default function StrudelDemo() {
 
@@ -120,11 +74,9 @@ export default function StrudelDemo() {
 		}
 	}
 	
-	// these codes below are for CPM function
 	// variable for song text
 	// songText is getter, setSongText is setter
-	// can set initial value nothing(empty) by default
-	// BUT we have stranger_tune so we use this
+	// can set initial value nothing(empty) by default, but we have stranger_tune so we use this
 	const [songText, setSongText] = useState(stranger_tune)
 	
 	// added State to manage CPM
@@ -148,33 +100,23 @@ export default function StrudelDemo() {
 			
 	}
 	
-	
 	// these codes below are for volume bar function
 	const [volume, setVolume] = useState("1");
 	
-//	const [state, setState] = useState("stop");
-	
-	// Effect 3
-	// hooks volume
-	useEffect(() => {
+	// 	JSON Handling
+	const handleSaveJson = () => {
 		
-		// skips an execution when it is first mount
-		if (isVolumeMount.current) {
-			isVolumeMount.current = false;
-			return;
-		}
+		// 1. creates a data to save as a JSON obj
+		const settings = {
+		    cpm: cpm,
+		    volume: volume,
+		    timestamp: new Date().toISOString()
+		};
 		
-		// when Editor is ready AND music is "Playing", then LIVE update
-		if (globalEditor && globalEditor.repl.state.started === true) {		
-			handlePlay();
-		}	
-//		// play music only when "play" button is hit
-//		if (state === "play") {
-//			handlePlay();
-//		}
+		// 2. change JSON obj to string
+		const jsonString = JSON.stringify(settings, null, 2);
 		
-	}, [volume])
-	
+	}
 
 	// Effect 1
 	// integrates initialization and contents update
@@ -223,6 +165,7 @@ export default function StrudelDemo() {
 		}
 	}, [songText, cpm]);
 	
+	
 	// Effect 2
 	// Live CPM update (while playing)
 	useEffect(() => {
@@ -240,6 +183,24 @@ export default function StrudelDemo() {
 		}
 	}, [cpm]);	// executes only when CPM is changed
 	
+	
+	// Effect 3
+	// hooks volume
+	useEffect(() => {
+		
+		// skips an execution when it is first mount
+		if (isVolumeMount.current) {
+			isVolumeMount.current = false;
+			return;
+		}
+		
+		// when Editor is ready AND music is "Playing", then LIVE update
+		if (globalEditor && globalEditor.repl.state.started === true) {		
+			handlePlay();
+		}	
+		
+	}, [volume])
+		
 	
 	return (
 	    <div>
@@ -271,10 +232,7 @@ export default function StrudelDemo() {
 					<div className="row mb-3">
 						<div className="col-12">
 						    <nav>
-								{/* <ProcButtons /> */}
 						        <br />
-								{/* <PlayButtons onPlay={handlePlay} onStop={handleStop} /> */}
-								{/* <PlayButtons onPlay={() => { setState("play"); handlePlay() }} onStop={() => { setState("stop"); handleStop() }} /> */}
 								<PlayButtons onPlay={handlePlay} onStop={handleStop} />
 						    </nav>
 						</div>
