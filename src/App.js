@@ -282,22 +282,23 @@ export default function StrudelDemo() {
 						<i className="bi bi-music-note-beamed col text-center"></i>
 					</div>
 	                <div className="row mb-3">
-	                    <div className="col-12" style={{ maxHeight: '25vh', overflowY: 'auto' }}>
+	                    <div className="col-12" style={{ maxHeight: '10vh', overflowY: 'auto' }}>
 	                    	<PreprocessTextarea defaultValue={songText} onChange={(e) => setSongText(e.target.value)} />
 						</div>
 	                </div>
 	                <div className="row mb-3">
-	                    <div className="col-12" style={{ maxHeight: '25vh', overflowY: 'auto' }}>
+	                    <div className="col-12" style={{ maxHeight: '10vh', overflowY: 'auto' }}>
 	                        <div id="editor" />
 	                        <div id="output" />
 	                    </div>
 	                </div>
-					<div className="text text-center fs-3 fw-bold">
-						Music Title
+					
+					{/* displays the title and artist name of songs and will change when users change the songs */}					
+					<div className="text-center mt-3">
+					  	<div className="fs-3 fw-bold">{tunes[songIndex].title}</div>
+					  	<div className="fs-5 text-secondary">{tunes[songIndex].artist}</div>
 					</div>
-					<div className="text text-left fs-3 fw-bold">
-						Singer Name
-					</div>
+
 
 					<div className="row mb-3">
 						<div className="col-12">
