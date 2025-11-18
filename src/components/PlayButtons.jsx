@@ -2,10 +2,10 @@ function PlayButtons({ onPlay, onStop, handlePrevSong, handleNextSong }) {
 	
 	return (
 		<>
-		<div className="d-flex justify-content-center align-items-center gap-3 my-3">
+		<div className="d-flex justify-content-center align-items-center gap-3 my-4">
 		    <button
 		        id="prev"
-		        className="btn btn-secondary rounded-circle btn-lg shadow-sm"
+		        className="btn-apple"
 		        onClick={handlePrevSong}
 		        title="Previous"
 		    >
@@ -14,7 +14,7 @@ function PlayButtons({ onPlay, onStop, handlePrevSong, handleNextSong }) {
 
 		    <button
 		        id="play"
-		        className="btn btn-primary rounded-circle btn-lg shadow-sm"
+		        className="btn-apple"
 		        onClick={onPlay}
 		        title="Play"
 		    >
@@ -23,7 +23,7 @@ function PlayButtons({ onPlay, onStop, handlePrevSong, handleNextSong }) {
 
 		    <button
 		        id="stop"
-		        className="btn btn-danger rounded-circle btn-lg shadow-sm"
+		        className="btn-apple"
 		        onClick={onStop}
 		        title="Stop"
 		    >
@@ -32,7 +32,7 @@ function PlayButtons({ onPlay, onStop, handlePrevSong, handleNextSong }) {
 
 		    <button
 		        id="next"
-		        className="btn btn-secondary rounded-circle btn-lg shadow-sm"
+		        className="btn-apple"
 		        onClick={handleNextSong}
 		        title="Next"
 		    >
