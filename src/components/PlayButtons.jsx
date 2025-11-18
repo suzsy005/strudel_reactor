@@ -2,38 +2,48 @@ function PlayButtons({ onPlay, onStop, handlePrevSong, handleNextSong }) {
 	
 	return (
 		<>
-			{/* wrap these buttons in button group to make it easy to track of these buttons */} 
-			<div className="btn-control-wrapper" role="group" aria-label="Basic mixed styles example">
-				<div className="row justify-content-evenly">
-					<button id="play" className="btn btn-outline-primary m-1 col-2" onClick={onPlay}>
-						<i className="bi bi-play-circle"></i>
-					</button>
-					<button id="stop" className="btn btn-outline-danger m-1 col-2" onClick={onStop}>
-						<i className="bi bi-stop-circle"></i>
-					</button>
-				</div>
-				
-				{/* Song Skip Buttons */}
-				<div className="row justify-content-evenly mt-2">
-				    <button
-				        id="prev"
-				        className="btn btn-outline-secondary m-1 col-2"
-				        onClick={handlePrevSong}
-				    >
-				        <i className="bi bi-chevron-left"></i>
-				    </button>
+		<div className="d-flex justify-content-center align-items-center gap-3 my-3">
+		    <button
+		        id="prev"
+		        className="btn btn-secondary rounded-circle btn-lg shadow-sm"
+		        onClick={handlePrevSong}
+		        title="Previous"
+		    >
+		        <i className="bi bi-chevron-left"></i>
+		    </button>
 
-				    <button
-				        id="next"
-				        className="btn btn-outline-secondary m-1 col-2"
-				        onClick={handleNextSong}
-				    >
-				        <i className="bi bi-chevron-right"></i>
-				    </button>
-				</div>
-			</div>
+		    <button
+		        id="play"
+		        className="btn btn-primary rounded-circle btn-lg shadow-sm"
+		        onClick={onPlay}
+		        title="Play"
+		    >
+		        <i className="bi bi-play-fill"></i>
+		    </button>
+
+		    <button
+		        id="stop"
+		        className="btn btn-danger rounded-circle btn-lg shadow-sm"
+		        onClick={onStop}
+		        title="Stop"
+		    >
+		        <i className="bi bi-stop-fill"></i>
+		    </button>
+
+		    <button
+		        id="next"
+		        className="btn btn-secondary rounded-circle btn-lg shadow-sm"
+		        onClick={handleNextSong}
+		        title="Next"
+		    >
+		        <i className="bi bi-chevron-right"></i>
+		    </button>
+		</div>
+
 		</>
 	);
 }
 
 export default PlayButtons; 
+
+{/* Song Skip Buttons */}

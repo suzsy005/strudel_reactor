@@ -282,12 +282,12 @@ export default function StrudelDemo() {
 						<i className="bi bi-music-note-beamed col text-center"></i>
 					</div>
 	                <div className="row mb-3">
-	                    <div className="col-12" style={{ maxHeight: '10vh', overflowY: 'auto' }}>
+	                    <div className="col-12" style={{ maxHeight: '15vh', overflowY: 'auto' }}>
 	                    	<PreprocessTextarea defaultValue={songText} onChange={(e) => setSongText(e.target.value)} />
 						</div>
 	                </div>
 	                <div className="row mb-3">
-	                    <div className="col-12" style={{ maxHeight: '10vh', overflowY: 'auto' }}>
+	                    <div className="col-12" style={{ maxHeight: '15vh', overflowY: 'auto' }}>
 	                        <div id="editor" />
 	                        <div id="output" />
 	                    </div>
