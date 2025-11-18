@@ -4,7 +4,7 @@ import { tune3 } from "./tune3";
 
 
 export const tunes = [
-  { title: "Stranger Tune", artist: "artist1", code: stranger_tune },
-  { title: "Tune 2", artist: "artist2", code: tune2 },
-  { title: "Tune 3", artist: "artist3", code: tune3 }
+  { title: "Stranger Tune", artist: "stranger", code: stranger_tune },
+  { title: "log", artist: "Justin Beaver", code: tune2 },
+  { title: "better than Objective-C", artist: "Taylorr Swift", code: tune3 }
 ];

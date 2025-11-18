@@ -274,36 +274,36 @@ export default function StrudelDemo() {
 	
 	return (
 	    <div>
-	        <h2>Strudel Demo</h2>
 	        <main>
 				{/* wrap all the contents in this wraper*/}
 				<div className="phone-frame col-md-4 mx-auto p-3 mb-5">
 					<div className="row">
 						<i className="bi bi-music-note-beamed col text-center"></i>
 					</div>
-	                <div className="row mb-3">
-	                    <div className="col-12" style={{ maxHeight: '15vh', overflowY: 'auto' }}>
-	                    	<PreprocessTextarea defaultValue={songText} onChange={(e) => setSongText(e.target.value)} />
+					<div className='control-box'>
+						<div className="row mb-3">
+						    <div className="col-12" style={{ maxHeight: '12vh', overflowY: 'auto' }}>
+						    	<PreprocessTextarea defaultValue={songText} onChange={(e) => setSongText(e.target.value)} />
+							</div>
 						</div>
-	                </div>
-	                <div className="row mb-3">
-	                    <div className="col-12" style={{ maxHeight: '15vh', overflowY: 'auto' }}>
-	                        <div id="editor" />
-	                        <div id="output" />
-	                    </div>
-	                </div>
+						<div className="row mb-3">
+						    <div className="col-12" style={{ maxHeight: '12vh', overflowY: 'auto' }}>
+						        <div id="editor" />
+						        <div id="output" />
+						    </div>
+						</div>
+						
+					</div>
 					
 					{/* displays the title and artist name of songs and will change when users change the songs */}					
 					<div className="text-center mt-3">
 					  	<div className="fs-3 fw-bold">{tunes[songIndex].title}</div>
 					  	<div className="fs-5 text-secondary">{tunes[songIndex].artist}</div>
 					</div>
-
-
+					
 					<div className="row mb-3">
 						<div className="col-12">
 						    <nav>
-						        <br />
 								<PlayButtons onPlay={handlePlay} onStop={handleStop} handlePrevSong={handlePrevSong} handleNextSong={handleNextSong} />
 						    </nav>
 						</div>
@@ -327,7 +327,9 @@ export default function StrudelDemo() {
 						</div>
 					</div>
 					<div className="mt-4 text-center">
-						<D3Graph data={d3Data} style={{ height: "150px"}} />
+						<div className='control-box'>
+							<D3Graph data={d3Data} style={{ height: "150px"}} />
+						</div>
 					</div>
 	            </div>
 	            <canvas id="roll"></canvas>

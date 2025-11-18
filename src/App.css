@@ -85,6 +85,15 @@
 }
 
 
+/* this is for Preprocess text area and D3 Graph frames */
+.control-box {
+    border: 1px solid #d2d2d7;
+    border-radius: 12px; 
+    padding: 1rem;
+    background-color: #f5f5f7; 
+    margin-bottom: 1.5rem;  
+    box-shadow: 0 2px 8px rgba(0,0,0,0.05); 
+}
 
 
 
