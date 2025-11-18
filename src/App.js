@@ -17,6 +17,7 @@ import * as Tone from "tone";	// for user CPM input function
 import { Preprocess } from './utils/PreprocessLogic';	// for volume range bar function
 import D3Graph from './components/D3Graph';
 import { tunes } from './tunes';
+import Accordion from 'react-bootstrap/Accordion';
 
 
 
@@ -326,11 +327,20 @@ export default function StrudelDemo() {
 								/>
 						</div>
 					</div>
-					<div className="mt-4 text-center">
-						<div className='control-box'>
-							<D3Graph data={d3Data} style={{ height: "150px"}} />
-						</div>
-					</div>
+					<Accordion defaultActiveKey="0">
+					  <Accordion.Item eventKey="0">
+					    <Accordion.Header>D3 Graph</Accordion.Header>
+					    <Accordion.Body>
+						  <div className="mt-4 text-center">
+						  	<div className='control-box'>
+						  		<D3Graph data={d3Data} style={{ height: "150px"}} />
+						  	</div>
+						  </div>
+
+					    </Accordion.Body>
+					  </Accordion.Item>
+					</Accordion>
+
 	            </div>
 	            <canvas id="roll"></canvas>
 	        </main >
