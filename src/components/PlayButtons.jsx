@@ -45,5 +45,3 @@ function PlayButtons({ onPlay, onStop, handlePrevSong, handleNextSong }) {
 }
 
 export default PlayButtons; 
-
-{/* Song Skip Buttons */}

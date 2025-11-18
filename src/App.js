@@ -98,10 +98,6 @@ export default function StrudelDemo() {
 		}
 	}
 	
-	// variable for song text
-	// songText is getter, setSongText is setter
-	// can set initial value nothing(empty) by default, but we have stranger_tune so we use this
-//	const [songText, setSongText] = useState(stranger_tune)
 	
 	// added State to manage CPM
 	const [cpm, setCpm] = useState("140"); 
@@ -187,8 +183,7 @@ export default function StrudelDemo() {
 			reader.readAsText(file);
 	};
 
-	// Effect 1
-	// integrates initialization and contents update
+	// Effect 1: integrates initialization and contents update
 	// put [songText, cpm] to update them whenever the contents change
 	useEffect(() => {
 	
@@ -237,8 +232,7 @@ export default function StrudelDemo() {
 	}, [songText, cpm, volume]);
 	
 	
-	// Effect 2
-	// Live CPM update (while playing)
+	// Effect 2: Live CPM update (while playing)
 	useEffect(() => {
 		// 1. skips the executions for the first mount to avoid music start playing when pase loaded
 		if (isCpmMount.current) {
@@ -255,8 +249,7 @@ export default function StrudelDemo() {
 	}, [cpm]);	// executes only when CPM is changed
 	
 	
-	// Effect 3
-	// hooks volume
+	// Effect 3: hooks volume
 	useEffect(() => {
 		
 		// skips an execution when it is first mount
@@ -276,7 +269,6 @@ export default function StrudelDemo() {
 	return (
 	    <div>
 	        <main>
-				{/* wrap all the contents in this wraper*/}
 				<div className="phone-frame col-md-4 mx-auto p-3 mb-5">
 					<div className="row">
 						<i className="bi bi-music-note-beamed col text-center"></i>
