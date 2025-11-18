@@ -16,6 +16,8 @@ import PreprocessTextarea from './components/PreprocessTextarea';
 import * as Tone from "tone";	// for user CPM input function
 import { Preprocess } from './utils/PreprocessLogic';	// for volume range bar function
 import D3Graph from './components/D3Graph';
+import tunes from './tunes';
+
 
 
 let globalEditor = null;
@@ -30,12 +32,30 @@ export default function StrudelDemo() {
 	// skips the first execution when volume changes 
 	const isVolumeMount = useRef(true);
 		
+	// handles D3 Graph
 	const [d3Data, setD3Data] = useState([]);
-
-	
 	const handleD3Data = (event) => {
 	  setD3Data(event.detail);
 	};
+	
+	// handles multiple tunes
+	const [songIndex, setSongIndex] = useState(0);
+	const [songText, setSongText] = useState(tunes[0].code);
+	
+	// skip to next song
+	const handleNextSong = () => {
+	    const next = (songIndex + 1) % tunes.length; 
+	    setSongIndex(next);
+	    setSongText(tunes[next].code);
+	};
+
+	// go back to previous song
+	const handlePrevSong = () => {
+	    const prev = (songIndex - 1 + tunes.length) % tunes.length;
+	    setSongIndex(prev);
+	    setSongText(tunes[prev].code);
+	};
+
 	
 	// variable for Play button
 	const handlePlay = () => {
@@ -80,7 +100,7 @@ export default function StrudelDemo() {
 	// variable for song text
 	// songText is getter, setSongText is setter
 	// can set initial value nothing(empty) by default, but we have stranger_tune so we use this
-	const [songText, setSongText] = useState(stranger_tune)
+//	const [songText, setSongText] = useState(stranger_tune)
 	
 	// added State to manage CPM
 	const [cpm, setCpm] = useState("140"); 
@@ -283,7 +303,7 @@ export default function StrudelDemo() {
 						<div className="col-12">
 						    <nav>
 						        <br />
-								<PlayButtons onPlay={handlePlay} onStop={handleStop} />
+								<PlayButtons onPlay={handlePlay} onStop={handleStop} onClickPrev={handlePrevSong} onClickSkip={handleSkipSong} />
 						    </nav>
 						</div>
 					</div>
