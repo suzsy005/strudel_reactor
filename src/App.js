@@ -15,14 +15,13 @@ import ProcButtons from './components/ProcButtons';
 import PreprocessTextarea from './components/PreprocessTextarea';
 import * as Tone from "tone";	// for user CPM input function
 import { Preprocess } from './utils/PreprocessLogic';	// for volume range bar function
-import D3Graph from './components/D3Graph';
 
 
 let globalEditor = null;
 
-//const handleD3Data = (event) => {
-//    console.log(event.detail);
-//};
+const handleD3Data = (event) => {
+    console.log(event.detail);
+};
 
 
 export default function StrudelDemo() {
@@ -34,24 +33,6 @@ export default function StrudelDemo() {
 	
 	// skips the first execution when volume changes 
 	const isVolumeMount = useRef(true);
-	
-//	const [d3DataArray, setD3DataArray] = useState([]);
-	
-	const [d3Data, setD3Data] = useState([]);
-
-	
-	const handleD3Data = (event) => {
-	  setD3Data(event.detail);
-	};
-
-//	
-//	useEffect(() => {
-//	  document.addEventListener("d3Data", handleD3Data);
-//	  return () => document.removeEventListener("d3Data", handleD3Data);
-//	}, []);
-
-
-
 	
 	// variable for Play button
 	const handlePlay = () => {
@@ -306,7 +287,7 @@ export default function StrudelDemo() {
 						    <DJ_Controls 
 								// props for CPM
 								cpm={cpm} 
-								onCpmChange={(newVal) => setCpm(newVal)}
+								onCpmChange={(newVal) => setCpm(newVal)}　
 								
 								// props for volume range bar
 								volume={volume} 
@@ -318,9 +299,6 @@ export default function StrudelDemo() {
 
 								/>
 						</div>
-					</div>
-					<div className="mt-4 text-center">
-					    <D3Graph data={d3Data} style={{ height: "150px"　/>
 					</div>
 	            </div>
 	            <canvas id="roll"></canvas>
