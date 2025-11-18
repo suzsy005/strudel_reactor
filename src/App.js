@@ -207,11 +207,13 @@ export default function StrudelDemo() {
 		if (globalEditor)
 		{
 			// set process code through Preprocess()
-			const processedCode = PreprocessCode(songText, cpm);
+			const codeWithCPM = PreprocessCode(songText, cpm);
+			// add the volume to codes with CPM
+			const finalCode = Preprocess({ inputText: codeWithCPM, volume: volume });
 			// whenever this func use useEffect file, set code to processCode
-			globalEditor.setCode(processedCode);	 
+			globalEditor.setCode(finalCode);	 
 		}
-	}, [songText, cpm]);
+	}, [songText, cpm, volume]);
 	
 	
 	// Effect 2
