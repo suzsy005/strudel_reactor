@@ -320,7 +320,7 @@ export default function StrudelDemo() {
 						</div>
 					</div>
 					<div className="mt-4 text-center">
-					    <D3Graph data={d3Data} style={{ height: "150px"　/>
+					    <D3Graph data={d3Data} style={{ height: "150px"}}　/>
 					</div>
 	            </div>
 	            <canvas id="roll"></canvas>
