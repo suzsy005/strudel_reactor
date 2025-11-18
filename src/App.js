@@ -7,7 +7,7 @@ import { initAudioOnFirstClick } from '@strudel/webaudio';
 import { transpiler } from '@strudel/transpiler';
 import { getAudioContext, webaudioOutput, registerSynthSounds } from '@strudel/webaudio';
 import { registerSoundfonts } from '@strudel/soundfonts';
-import { stranger_tune } from './tunes';
+//import { stranger_tune } from './tunes/tune1';
 import console_monkey_patch, { getD3Data } from './console-monkey-patch';
 import DJ_Controls from './components/DJ_Controls';
 import PlayButtons from './components/PlayButtons';
@@ -16,7 +16,7 @@ import PreprocessTextarea from './components/PreprocessTextarea';
 import * as Tone from "tone";	// for user CPM input function
 import { Preprocess } from './utils/PreprocessLogic';	// for volume range bar function
 import D3Graph from './components/D3Graph';
-import tunes from './tunes';
+import { tunes } from './tunes';
 
 
 
@@ -303,7 +303,7 @@ export default function StrudelDemo() {
 						<div className="col-12">
 						    <nav>
 						        <br />
-								<PlayButtons onPlay={handlePlay} onStop={handleStop} onClickPrev={handlePrevSong} onClickSkip={handleSkipSong} />
+								<PlayButtons onPlay={handlePlay} onStop={handleStop} handlePrevSong={handlePrevSong} handleNextSong={handleNextSong} />
 						    </nav>
 						</div>
 					</div>
@@ -326,7 +326,7 @@ export default function StrudelDemo() {
 						</div>
 					</div>
 					<div className="mt-4 text-center">
-					    <D3Graph data={d3Data} style={{ height: "150px"}}　/>
+						<D3Graph data={d3Data} style={{ height: "150px"}} />
 					</div>
 	            </div>
 	            <canvas id="roll"></canvas>
