@@ -1,5 +1,16 @@
-# Test commit
-# What I'm going to add to this Strudel Reactor for Part 2 submittion (I'll going to add more later when I come up with)
+## Title: React Assignment
+
+	Play/Stop/Skip/Goback Buttons
+	CPM: users can change the speed of songs
+	Valume range bar: users can change the volume of songs
+	Save and Load settings: users can save and load the song setting(CPM, volume)
+	D3 Graph: users can enjoy the wave of songs
+
+	
+Demo video: https://youtu.be/M2WzY8KMnUw
+
+
+### What I'm going to add to this Strudel Reactor for Part 2 submittion (I'll going to add more later when I come up with)
 ### Updated on 9th Nov
 ### `Uncompleted functions (volume range bar, instruments buttons, etc.)`
 
