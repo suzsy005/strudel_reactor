@@ -20,11 +20,6 @@ import D3Graph from './components/D3Graph';
 
 let globalEditor = null;
 
-//const handleD3Data = (event) => {
-//    console.log(event.detail);
-//};
-
-
 export default function StrudelDemo() {
 
 	const hasRun = useRef(false);
@@ -34,24 +29,13 @@ export default function StrudelDemo() {
 	
 	// skips the first execution when volume changes 
 	const isVolumeMount = useRef(true);
-	
-//	const [d3DataArray, setD3DataArray] = useState([]);
-	
+		
 	const [d3Data, setD3Data] = useState([]);
 
 	
 	const handleD3Data = (event) => {
 	  setD3Data(event.detail);
 	};
-
-//	
-//	useEffect(() => {
-//	  document.addEventListener("d3Data", handleD3Data);
-//	  return () => document.removeEventListener("d3Data", handleD3Data);
-//	}, []);
-
-
-
 	
 	// variable for Play button
 	const handlePlay = () => {
